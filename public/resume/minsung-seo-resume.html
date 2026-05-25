@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서민성 이력서 | AI PM & Engineer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #059669;
+      --accent-light: #d1fae5;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --bg-section: #f9fafb;
+    }
+
+    @page {
+      size: A4;
+      margin: 12mm 14mm;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fff;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 14mm 16mm;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2.5px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+    .header-left h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .header-left .role {
+      font-size: 11pt;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .header-right a { color: var(--accent); text-decoration: none; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 14px; }
+    .section-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* ── SUMMARY ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 24px;
+    }
+    .summary-item {
+      font-size: 8.8pt;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .summary-item::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item { margin-bottom: 12px; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .exp-company {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-period {
+      font-size: 8pt;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .exp-meta {
+      font-size: 8.5pt;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .exp-meta .role-badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 7.5pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 6px;
+    }
+
+    /* ── PROJECT ── */
+    .project {
+      margin-bottom: 7px;
+      padding-left: 10px;
+      border-left: 2px solid var(--accent-light);
+    }
+    .project-name {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .project-client {
+      font-size: 8pt;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .project-desc {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+    }
+    .project-tasks {
+      list-style: none;
+      margin-top: 2px;
+    }
+    .project-tasks li {
+      font-size: 8.2pt;
+      color: var(--text-muted);
+      padding-left: 10px;
+      position: relative;
+    }
+    .project-tasks li::before {
+      content: '·';
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 4px 8px;
+      align-items: start;
+    }
+    .skill-cat {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: var(--text);
+      padding-top: 1px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .skill-tag {
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      font-size: 7.5pt;
+      padding: 1px 6px;
+      border-radius: 3px;
+      color: var(--text);
+    }
+    .skill-tag.primary {
+      background: var(--accent-light);
+      border-color: #6ee7b7;
+      color: #065f46;
+      font-weight: 500;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px;
+      margin-bottom: 5px;
+      align-items: baseline;
+    }
+    .edu-school { font-size: 9pt; font-weight: 600; }
+    .edu-detail { font-size: 8.2pt; color: var(--text-muted); }
+    .edu-period { font-size: 8pt; color: var(--text-muted); white-space: nowrap; }
+    .edu-gpa {
+      font-size: 7.8pt;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+
+    /* ── AWARDS ── */
+    .award-item {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 3px;
+      font-size: 8.5pt;
+    }
+    .award-date { color: var(--accent); font-weight: 500; white-space: nowrap; }
+
+    /* ── TWO-COL LAYOUT ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { padding: 0; }
+      .no-print { display: none; }
+      .section { page-break-inside: avoid; }
+    }
+
+    /* ── SCREEN ONLY ── */
+    @media screen {
+      body { padding: 20mm; }
+      .print-hint {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 9pt;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 12px rgba(5,150,105,0.4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>서민성</h1>
+      <div class="role">AI PM &amp; Engineer</div>
+    </div>
+    <div class="header-right">
+      <div>📞 010-9203-6333</div>
+      <div>✉ <a href="mailto:sq153@naver.com">sq153@naver.com</a></div>
+      <div>🔗 <a href="https://github.com/minsung6333">github.com/minsung6333</a></div>
+      <div>🌐 <a href="https://minsung6333.vercel.app">minsung6333.vercel.app</a></div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">핵심 역량</div>
+    <div class="summary-grid">
+      <div class="summary-item">생성형 AI·LLM·RAG 기반 IT 프로젝트 PM 수행 (공공기관·기업 대상)</div>
+      <div class="summary-item">클라우드 환경(NKS)에서 LLM 서비스 개발·배포 직접 수행</div>
+      <div class="summary-item">요구사항 정의부터 배포까지 전 주기 프로젝트 관리 경험</div>
+      <div class="summary-item">Python·SQL·Tableau 활용 데이터 분석 및 시각화</div>
+      <div class="summary-item">이해관계자 간 커뮤니케이션 허브 역할 (현업·개발·협력사)</div>
+      <div class="summary-item">아이디어에서 배포까지 AI 서비스를 직접 만드는 PM</div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">경력 사항</div>
+
+    <!-- 클라비 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">(주)클라비 · AIOps팀</span>
+        <span class="exp-period">2024.04 – 현재 (1년 10개월)</span>
+      </div>
+      <div class="exp-meta">
+        <span class="role-badge">IT PM</span>
+        <span class="role-badge">AI Engineer</span>
+        IT SI·MSP | 직원 63명 | 정규직
+      </div>
+
+      <div class="project">
+        <div class="project-name">소상공인 상권분석 AI 챗봇 구축 PM</div>
+        <div class="project-client">고객사: 소상공인시장진흥공단 | 2025.08 – 2025.12</div>
+        <ul class="project-tasks">
+          <li>자연어 기반 지역 상권분석 챗봇 개발 PM (Waterfall)</li>
+          <li>URS·WBS·FS·IA·DB정의서·API 설계서 등 산출물 총괄</li>
+          <li>자사 생성형 AI 플랫폼 PoC 및 도메인 특화 LLM 구축</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-name">대한전기협회 KEPIC AI 챗봇 구축 PM</div>
+        <div class="project-client">고객사: 대한전기협회 | 2025.03 – 2025.12</div>
+        <ul class="project-tasks">
+          <li>전력산업기술기준(KEPIC) 도메인 특화 챗봇 개발 PM</li>
+          <li>데이터 전처리·데이터마트·파이프라인 구축 직접 수행</li>
+          <li>챗봇 Backend API 및 UI/UX 화면 산출물 관리</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-name">경기기업비서 RAG 챗봇 개발 (AI Engineer)</div>
+        <div class="project-client">고객사: 경기도경제과학진흥원 | 2024.05 – 2024.11</div>
+        <ul class="project-tasks">
+          <li>HyperClovaX 기반 RAG 챗봇 프롬프트 튜닝 및 직접 개발</li>
+          <li>데이터 전처리·데이터마트·수집 파이프라인 구성 (NKS 환경)</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-client" style="font-size:8pt;color:#6b7280;">
+          + 금융감독원 민원분류 PoC, 소상공인1차(2024.09), 경기기업비서2차(2025.11~), 대한전기협회(2025.03~), 세종특별자치시 PoC 등 다수
+        </div>
+      </div>
+    </div>
+
+    <!-- 넥스트허브 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">(주)넥스트허브 · 데이터분석팀</span>
+        <span class="exp-period">2022.05 – 2023.02 (10개월)</span>
+      </div>
+      <div class="exp-meta">
+        <span class="role-badge">IT PM</span>
+        <span class="role-badge">데이터 분석가</span>
+        라이브커머스 대행 | 직원 40명 | 매니저
+      </div>
+
+      <div class="project">
+        <div class="project-name">라이브커머스 분석 플랫폼 구축 PM</div>
+        <div class="project-client">2022.05 – 2023.02</div>
+        <ul class="project-tasks">
+          <li>모바일 웹 기반 라이브커머스 데이터 분석 플랫폼 PM (Hybrid)</li>
+          <li>요구사항 정의·IA·DB 설계, 수행업체 관리, 현업 Facilitator</li>
+          <li>인터랙티브 통계·분석 대시보드 구축, 성과지표(KPI) 개발</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-name">라이브커머스 채팅·CRM 빅데이터 분석</div>
+        <div class="project-client">2022.05 – 2022.12</div>
+        <ul class="project-tasks">
+          <li>NLP 기반 채팅 긍부정 분석 및 LSTM 판매량 예측 모델 개발</li>
+          <li>성과측정 KPI 지표 개발·검증, 월간 보고서 작성</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 골든플래닛 -->
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">(주)골든플래닛 · 데이터분석사업부</span>
+        <span class="exp-period">2021.03 – 2022.05 (1년 3개월)</span>
+      </div>
+      <div class="exp-meta">
+        <span class="role-badge">PM</span>
+        <span class="role-badge">데이터 분석가</span>
+        IT SI·데이터 분석·마케팅 | 직원 120명 | 매니저
+      </div>
+
+      <div class="project">
+        <div class="project-name">공공데이터 개방 프로젝트 PM</div>
+        <div class="project-client">경상남도·충청남도청 | 2021.07 – 2021.12</div>
+        <ul class="project-tasks">
+          <li>공공데이터 구축·개방 PM (Waterfall), 데이터 가공 인력 교육 진행</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="project-name">SNS 비정형 데이터 분석</div>
+        <div class="project-client">SK매직, 경상북도청, 한국필립모리스 등 | 2021.03 – 2022.02</div>
+        <ul class="project-tasks">
+          <li>KOBERT 기반 감성분석·카테고리 분류, 마케팅 인사이트 보고서 작성</li>
+          <li>VOC 분류 모델 개발·고도화 (한국필립모리스)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN: SKILLS + EDUCATION -->
+  <div class="two-col">
+    <!-- SKILLS -->
+    <div class="section">
+      <div class="section-title">기술 스택</div>
+      <div class="skills-grid">
+        <div class="skill-cat">LLM / AI</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">LLM</span>
+          <span class="skill-tag primary">RAG</span>
+          <span class="skill-tag primary">HyperClovaX</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">PEFT</span>
+          <span class="skill-tag">Fine-tuning</span>
+        </div>
+
+        <div class="skill-cat">Python</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Python</span>
+          <span class="skill-tag">NLP</span>
+          <span class="skill-tag">BERT</span>
+          <span class="skill-tag">LSTM</span>
+          <span class="skill-tag">LangChain</span>
+          <span class="skill-tag">FastAPI</span>
+        </div>
+
+        <div class="skill-cat">데이터</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">SQL</span>
+          <span class="skill-tag primary">Tableau</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">scikit-learn</span>
+        </div>
+
+        <div class="skill-cat">DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">ArgoCD</span>
+          <span class="skill-tag">NKS</span>
+          <span class="skill-tag">Git</span>
+        </div>
+
+        <div class="skill-cat">PM 도구</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Notion</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Slack</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDUCATION + AWARDS -->
+    <div>
+      <div class="section">
+        <div class="section-title">학력</div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">숭실대학교 정보과학대학원</div>
+            <div class="edu-detail">인공지능학과 <span class="edu-gpa">GPA 4.28 / 4.5</span></div>
+          </div>
+          <div class="edu-period">2022.09 – 2025.02</div>
+        </div>
+
+        <div class="edu-item">
+          <div>
+            <div class="edu-school">홍익대학교</div>
+            <div class="edu-detail">광고홍보학부 광고홍보학과</div>
+          </div>
+          <div class="edu-period">2014.03 – 2020.08</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">수상 및 교육</div>
+
+        <div class="award-item">
+          <span class="award-date">2024.08</span>
+          <span>산업통상자원부 공공데이터 분석 공모전 우수상</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2024.03</span>
+          <span>한솔데코 시즌2 AI 경진대회 34위 / 1,311명 (상위 2.6%)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2024.02</span>
+          <span>AI 엔지니어 양성과정 수료 (아이펠 리서치)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2020.11</span>
+          <span>빅데이터 분석 전문가 양성과정 수료 (한국경제신문)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2020.10</span>
+          <span>KT MHOWS 빅데이터 분석 공모전 3위 (우수상)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2020.09</span>
+          <span>농협양곡 빅데이터 분석 공모전 3위 (우수상)</span>
+        </div>
+        <div class="award-item">
+          <span class="award-date">2018.08</span>
+          <span>국유재산 총조사 아이디어 공모전 1위 (대상)</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">병역</div>
+        <div style="font-size:8.5pt;color:var(--text-muted);">
+          군필 · 육군 병장 만기전역 (2016.01 – 2017.10 / 21개월)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Print button (screen only) -->
+  <button class="print-hint no-print" onclick="window.print()">🖨 PDF로 저장</button>
+
+</body>
+</html>
