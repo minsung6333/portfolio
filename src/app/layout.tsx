@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://portfolio-wheat-mu-u16571ejdy.vercel.app'),
+  metadataBase: new URL('https://minsung6333-portfolio.vercel.app'),
   title: {
     default: '서민성 | AI PM & Engineer',
     template: '%s | 서민성',
