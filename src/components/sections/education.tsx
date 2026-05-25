@@ -13,6 +13,7 @@ import {
   Calendar,
   ChevronDown,
   BookOpen,
+  Download,
 } from 'lucide-react';
 import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
@@ -26,6 +27,7 @@ export function Education() {
     name: string;
     org: string;
     date: string;
+    file?: string;
   }>;
 
   const basicCourses = tEdu.raw('courses.basic.items') as string[];
@@ -227,9 +229,28 @@ export function Education() {
                         {cert.org}
                       </p>
                     </div>
-                    <Badge variant='glass' className='shrink-0 w-fit'>
-                      {cert.date}
-                    </Badge>
+                    <div className='flex items-center gap-2 shrink-0'>
+                      <Badge variant='glass' className='w-fit'>
+                        {cert.date}
+                      </Badge>
+                      {cert.file && (
+                        <a
+                          href={cert.file}
+                          download
+                          onClick={() =>
+                            gtag.event({
+                              action: 'download',
+                              category: 'project',
+                              label: cert.name,
+                            })
+                          }
+                          className='inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs text-primary border border-primary/30 hover:bg-primary/10 transition-colors'
+                        >
+                          <Download className='h-3 w-3' />
+                          PDF
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}

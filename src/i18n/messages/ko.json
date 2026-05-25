@@ -12,7 +12,7 @@
   "hero": {
     "name": "서민성",
     "role": "AI PM & Engineer",
-    "description": "생성형 AI 챗봇을 기획하고, RAG를 직접 구현하는 AI PM입니다.",
+    "description": "AI가 실제 비즈니스에 작동하도록, 기획부터 RAG 구현까지 직접 합니다.",
     "company": "클라비",
     "downloadResume": "이력서 다운로드",
     "viewGithub": "GitHub"
@@ -478,24 +478,37 @@
         "date": "2024.02"
       },
       {
+        "name": "빅데이터 분석 전문가 양성과정 수료",
+        "org": "한국경제신문 빅데이터 마에스트로",
+        "date": "2020.11"
+      },
+      {
         "name": "KT MHOWS 빅데이터 분석 공모전 3위 (우수상)",
         "org": "KT",
-        "date": "2020.10"
+        "date": "2020.10",
+        "file": "/projects/kt-mhows-promotion.pdf"
       },
       {
         "name": "농협양곡 빅데이터 분석 공모전 3위 (우수상)",
         "org": "농협양곡",
-        "date": "2020.09"
+        "date": "2020.09",
+        "file": "/projects/nha-yanggok-analysis.pdf"
+      },
+      {
+        "name": "한경경제신문 빅데이터 분석 공모전 3위 (우수상)",
+        "org": "한국경제신문",
+        "date": "2020.08"
+      },
+      {
+        "name": "수소충전소 최적 입지선정 빅데이터 분석 프로젝트",
+        "org": "한국경제신문 빅데이터 마에스트로",
+        "date": "2020.07",
+        "file": "/projects/hydrogen-station-location.pdf"
       },
       {
         "name": "국유재산 총조사 국유지 활성화 아이디어 공모전 대상",
         "org": "기획재정부",
         "date": "2018.08"
-      },
-      {
-        "name": "빅데이터 분석 전문가 양성과정 수료",
-        "org": "한국경제신문 빅데이터 마에스트로",
-        "date": "2020.11"
       }
     ]
   },

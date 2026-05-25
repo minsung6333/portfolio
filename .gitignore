@@ -47,7 +47,9 @@ next-env.d.ts
 .claude/
 
 # root-level loose files (logos/docs placed here before moving to public/)
-*.pdf
+/*.pdf
+/resume/*.pdf
+!public/**/*.pdf
 clabi\ logo.png
 goldenplanet\ logo.png
 nexthub\ logo.jpg

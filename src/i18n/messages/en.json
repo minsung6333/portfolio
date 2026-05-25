@@ -12,7 +12,7 @@
   "hero": {
     "name": "Minsung Seo",
     "role": "AI PM & Engineer",
-    "description": "An AI PM who plans generative AI chatbots and directly implements RAG.",
+    "description": "Making AI work in real business — from product planning to RAG implementation.",
     "company": "Klavi",
     "downloadResume": "Download Resume",
     "viewGithub": "GitHub"
@@ -475,24 +475,37 @@
         "date": "Feb 2024"
       },
       {
+        "name": "Big Data Analysis Expert Training Course Completion",
+        "org": "Korea Economic Daily Big Data Maestro",
+        "date": "Nov 2020"
+      },
+      {
         "name": "KT MHOWS Big Data Analysis Contest — 3rd Place",
         "org": "KT",
-        "date": "Oct 2020"
+        "date": "Oct 2020",
+        "file": "/projects/kt-mhows-promotion.pdf"
       },
       {
         "name": "NH Yanggok Big Data Analysis Contest — 3rd Place",
         "org": "NH Yanggok",
-        "date": "Sep 2020"
+        "date": "Sep 2020",
+        "file": "/projects/nha-yanggok-analysis.pdf"
+      },
+      {
+        "name": "Korea Economic Daily Big Data Analysis Contest — 3rd Place",
+        "org": "Korea Economic Daily",
+        "date": "Aug 2020"
+      },
+      {
+        "name": "Hydrogen Station Optimal Location Big Data Project",
+        "org": "Korea Economic Daily Big Data Maestro",
+        "date": "Jul 2020",
+        "file": "/projects/hydrogen-station-location.pdf"
       },
       {
         "name": "National Property Survey Land Revitalization Idea Contest — Grand Prize",
         "org": "Ministry of Economy and Finance",
         "date": "Aug 2018"
-      },
-      {
-        "name": "Big Data Analysis Expert Training Course Completion",
-        "org": "Korea Economic Daily Big Data Maestro",
-        "date": "Nov 2020"
       }
     ]
   },
