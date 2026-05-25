@@ -439,7 +439,7 @@
     "hideCourses": "Hide Courses",
     "courses": {
       "basic": {
-        "title": "AI Major",
+        "title": "AI Graduate Courses",
         "items": [
           "Machine Learning",
           "Deep Learning",
@@ -447,16 +447,13 @@
           "Computer Vision",
           "AI Paper Study"
         ]
-      },
-      "major": {
-        "title": "Undergraduate (Hongik University, Advertising & PR, 2014-2020)",
-        "items": [
-          "Graduated from Advertising & PR",
-          "Marketing Strategy",
-          "Consumer Behavior",
-          "Brand Management"
-        ]
       }
+    },
+    "undergrad": {
+      "university": "Hongik University",
+      "major": "Advertising & Public Relations",
+      "period": "Mar 2014 - Feb 2020",
+      "status": "Graduated"
     }
   },
   "certifications": {
