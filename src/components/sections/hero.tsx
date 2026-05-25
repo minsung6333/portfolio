@@ -95,7 +95,7 @@ export function Hero() {
           >
             <Button size='lg' variant='glass' className='glass-glow' asChild>
               <a
-                href='/resume/minsung-seo-resume.pdf'
+                href='/resume/minsung-seo-resume.docx'
                 download
                 onClick={() =>
                   gtag.event({
