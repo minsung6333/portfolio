@@ -10,6 +10,7 @@ import { Education } from '@/components/sections/education';
 import { Blog } from '@/components/sections/blog';
 import { Contact } from '@/components/sections/contact';
 import { Footer } from '@/components/layout/footer';
+import { getSideProjects } from '@/lib/notion';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -19,6 +20,9 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  // Fetch side projects from Notion (graceful fallback on error)
+  const notionProjects = await getSideProjects().catch(() => []);
+
   return (
     <div className='min-h-screen'>
       <Header />
@@ -26,7 +30,7 @@ export default async function HomePage({ params }: Props) {
       <About />
       <Experience />
       <Projects />
-      <PersonalProjects />
+      <PersonalProjects notionProjects={notionProjects} />
       <Skills />
       <Education />
       <Blog />

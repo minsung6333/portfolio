@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -10,38 +9,26 @@ import { ArrowUpRight, Github } from 'lucide-react';
 import { PersonalProjectModal } from './personal-project-modal';
 import { SpotlightCard } from '@/components/common/spotlight-card';
 import * as gtag from '@/lib/gtag';
+import type { NotionSideProject } from '@/lib/notion';
 
-export function PersonalProjects() {
+// Spotlight colors cycling per card
+const SPOTLIGHT_COLORS = [
+  'rgba(255, 160, 120, 0.14)',
+  'rgba(90, 200, 140, 0.14)',
+  'rgba(160, 120, 255, 0.14)',
+  'rgba(90, 190, 255, 0.14)',
+  'rgba(120, 140, 255, 0.14)',
+  'rgba(255, 200, 80, 0.14)',
+];
+
+interface PersonalProjectsProps {
+  notionProjects: NotionSideProject[];
+}
+
+export function PersonalProjects({ notionProjects }: PersonalProjectsProps) {
   const t = useTranslations('personalProjects');
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-
-  const projects = [
-    {
-      key: 'harufilm',
-      cardVariant: 'editorial' as const,
-      spotlightColor: 'rgba(255, 160, 120, 0.14)',
-    },
-    {
-      key: 'nara',
-      cardVariant: 'glass' as const,
-      spotlightColor: 'rgba(90, 200, 140, 0.14)',
-    },
-    {
-      key: 'rfp-writer',
-      cardVariant: 'editorial' as const,
-      spotlightColor: 'rgba(160, 120, 255, 0.14)',
-    },
-    {
-      key: 'hansoldeco',
-      cardVariant: 'glass' as const,
-      spotlightColor: 'rgba(90, 190, 255, 0.14)',
-    },
-    {
-      key: 'history-rag',
-      cardVariant: 'glass' as const,
-      spotlightColor: 'rgba(120, 140, 255, 0.14)',
-    },
-  ];
+  const [selectedProject, setSelectedProject] =
+    useState<NotionSideProject | null>(null);
 
   return (
     <section id='personal-projects' className='py-20 md:py-32 scroll-mt-28'>
@@ -62,9 +49,9 @@ export function PersonalProjects() {
 
         {/* Projects Grid - Bento Style */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto'>
-          {projects.map((project, index) => (
+          {notionProjects.map((project, index) => (
             <motion.div
-              key={project.key}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,43 +59,29 @@ export function PersonalProjects() {
             >
               <SpotlightCard
                 className='h-full md:h-[520px]'
-                spotlightColor={project.spotlightColor}
+                spotlightColor={
+                  SPOTLIGHT_COLORS[index % SPOTLIGHT_COLORS.length]
+                }
               >
                 <Card
-                  variant={project.cardVariant}
+                  variant={project.cardStyle}
                   className='h-full group overflow-hidden cursor-pointer flex flex-col'
                   onClick={() => {
-                    setSelectedProject(project.key);
+                    setSelectedProject(project);
                     gtag.event({
                       action: 'open',
                       category: 'modal',
-                      label: `personal_project_${project.key}`,
+                      label: `personal_project_${project.id}`,
                     });
                   }}
                 >
-                  {/* Preview */}
+                  {/* Preview — gradient background (images managed via Notion later) */}
                   <div className='relative h-40 md:h-44 overflow-hidden border-b border-white/10'>
-                    {(t.raw(`items.${project.key}.images`) as string[]).length >
-                    0 ? (
-                      <Image
-                        src={
-                          (t.raw(`items.${project.key}.images`) as string[])[0]
-                        }
-                        alt={t(`items.${project.key}.title`)}
-                        fill
-                        sizes='(max-width: 768px) 100vw, 520px'
-                        className='object-cover transition-transform duration-500 group-hover:scale-[1.03]'
-                        unoptimized
-                      />
-                    ) : (
-                      <div className='h-full w-full gradient-bg opacity-20' />
-                    )}
+                    <div className='h-full w-full gradient-bg opacity-20' />
                     <div className='absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent' />
                     <div className='absolute bottom-3 left-4 inline-flex items-center gap-2 rounded-full bg-black/35 px-2.5 py-1 text-[11px] text-white/90 backdrop-blur-sm'>
                       <Github className='h-3.5 w-3.5' />
-                      <span className='line-clamp-1'>
-                        {t(`items.${project.key}.period`)}
-                      </span>
+                      <span className='line-clamp-1'>{project.period}</span>
                     </div>
                   </div>
 
@@ -120,10 +93,10 @@ export function PersonalProjects() {
                         </div>
                         <div>
                           <CardTitle className='text-lg leading-snug group-hover:text-primary transition-colors'>
-                            {t(`items.${project.key}.title`)}
+                            {project.title}
                           </CardTitle>
                           <p className='text-sm text-muted-foreground mt-1'>
-                            {t(`items.${project.key}.role`)}
+                            {project.role}
                           </p>
                         </div>
                       </div>
@@ -133,51 +106,44 @@ export function PersonalProjects() {
 
                   <CardContent className='flex-1 space-y-4'>
                     <p className='text-sm text-muted-foreground leading-relaxed line-clamp-2'>
-                      {t(`items.${project.key}.description`)}
+                      {project.description}
                     </p>
 
                     {/* Tech Stack */}
                     <div className='flex flex-wrap gap-2'>
-                      {(t.raw(`items.${project.key}.tech`) as string[])
-                        .slice(0, 4)
-                        .map((tech: string, techIndex: number) => (
-                          <Badge
-                            key={tech}
-                            variant={
-                              techIndex === 0
-                                ? 'accent'
-                                : techIndex < 3
-                                  ? 'flat'
-                                  : 'outline'
-                            }
-                            className='text-xs'
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      {(t.raw(`items.${project.key}.tech`) as string[]).length >
-                        4 && (
+                      {project.tech.slice(0, 4).map((tech, techIndex) => (
+                        <Badge
+                          key={tech}
+                          variant={
+                            techIndex === 0
+                              ? 'accent'
+                              : techIndex < 3
+                                ? 'flat'
+                                : 'outline'
+                          }
+                          className='text-xs'
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.tech.length > 4 && (
                         <Badge variant='flat' className='text-xs font-semibold'>
-                          +
-                          {(t.raw(`items.${project.key}.tech`) as string[])
-                            .length - 4}
+                          +{project.tech.length - 4}
                         </Badge>
                       )}
                     </div>
 
                     {/* Features */}
                     <ul className='space-y-2 border-l border-border/70 pl-3'>
-                      {(t.raw(`items.${project.key}.features`) as string[])
-                        .slice(0, 2)
-                        .map((feature: string, i: number) => (
-                          <li
-                            key={i}
-                            className='flex items-start gap-2 text-xs text-muted-foreground leading-relaxed'
-                          >
-                            <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
+                      {project.features.slice(0, 2).map((feature, i) => (
+                        <li
+                          key={i}
+                          className='flex items-start gap-2 text-xs text-muted-foreground leading-relaxed'
+                        >
+                          <span className='mt-1.5 w-1.5 h-1.5 rounded-full bg-point shrink-0' />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
                     </ul>
                   </CardContent>
                 </Card>
@@ -189,7 +155,7 @@ export function PersonalProjects() {
 
       {/* Project Detail Modal */}
       <PersonalProjectModal
-        projectKey={selectedProject}
+        project={selectedProject}
         open={!!selectedProject}
         onOpenChange={(open) => !open && setSelectedProject(null)}
       />
