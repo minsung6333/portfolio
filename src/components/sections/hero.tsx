@@ -4,7 +4,21 @@ import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Download, Github, Linkedin, Mail, BookOpen } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import {
+  Download,
+  Github,
+  Mail,
+  BookOpen,
+  FileText,
+  Globe,
+  ChevronDown,
+} from 'lucide-react';
 import * as gtag from '@/lib/gtag';
 import LiquidEther from '@/components/common/liquid-ether';
 
@@ -93,21 +107,54 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className='flex flex-col sm:flex-row items-center justify-center gap-4 mb-12'
           >
-            <Button size='lg' variant='glass' className='glass-glow' asChild>
-              <a
-                href='/resume/minsung-seo-resume.docx'
-                download
-                onClick={() =>
-                  gtag.event({
-                    action: 'download',
-                    category: 'resume',
-                  })
-                }
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size='lg' variant='glass' className='glass-glow'>
+                  <Download className='mr-2 h-4 w-4' />
+                  {t('downloadResume')}
+                  <ChevronDown className='ml-2 h-4 w-4' />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align='center'
+                className='liquid-glass-elevated border-0'
               >
-                <Download className='mr-2 h-4 w-4' />
-                {t('downloadResume')}
-              </a>
-            </Button>
+                <DropdownMenuItem asChild>
+                  <a
+                    href='/resume/minsung-seo-resume.docx'
+                    download
+                    className='flex items-center gap-2 cursor-pointer'
+                    onClick={() =>
+                      gtag.event({
+                        action: 'download',
+                        category: 'resume',
+                        label: 'docx',
+                      })
+                    }
+                  >
+                    <FileText className='h-4 w-4 text-point' />
+                    Word (.docx)
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a
+                    href='/resume/minsung-seo-resume.html'
+                    download
+                    className='flex items-center gap-2 cursor-pointer'
+                    onClick={() =>
+                      gtag.event({
+                        action: 'download',
+                        category: 'resume',
+                        label: 'html',
+                      })
+                    }
+                  >
+                    <Globe className='h-4 w-4 text-point' />
+                    HTML
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button size='lg' variant='glass' asChild>
               <a
                 href='https://github.com/minsung6333'
