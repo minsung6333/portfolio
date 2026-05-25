@@ -1,4 +1,4 @@
-const RSS_URL = 'https://junheedot.tistory.com/rss';
+const RSS_URL = 'https://v2.velog.io/rss/@minsung6333';
 
 export interface BlogPost {
   title: string;

@@ -17,34 +17,14 @@ export function PersonalProjects() {
 
   const projects = [
     {
-      key: 'my-text-to-sql-learner',
+      key: 'hansoldeco',
       cardVariant: 'editorial' as const,
       spotlightColor: 'rgba(90, 190, 255, 0.14)',
     },
     {
-      key: 'my-claude-learner',
+      key: 'history-rag',
       cardVariant: 'glass' as const,
       spotlightColor: 'rgba(120, 140, 255, 0.14)',
-    },
-    {
-      key: 'my-agentic-ai',
-      cardVariant: 'solid' as const,
-      spotlightColor: 'rgba(165, 140, 255, 0.14)',
-    },
-    {
-      key: 'my-liveness',
-      cardVariant: 'outline' as const,
-      spotlightColor: 'rgba(120, 220, 190, 0.12)',
-    },
-    {
-      key: 'my-tanstack-query-strategy',
-      cardVariant: 'glass' as const,
-      spotlightColor: 'rgba(150, 180, 255, 0.14)',
-    },
-    {
-      key: 'my-monorepo',
-      cardVariant: 'solid' as const,
-      spotlightColor: 'rgba(120, 205, 255, 0.12)',
     },
   ];
 

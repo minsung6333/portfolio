@@ -22,27 +22,21 @@ export function Hero() {
   const socialLinks = [
     {
       icon: Github,
-      href: 'https://github.com/junh0328',
+      href: 'https://github.com/minsung6333',
       label: 'GitHub',
       gtagLabel: 'github',
     },
     {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/%EC%A4%80%ED%9D%AC-%EC%9D%B4-23176a214/',
-      label: 'LinkedIn',
-      gtagLabel: 'linkedin',
-    },
-    {
       icon: Mail,
-      href: 'mailto:junh0328@naver.com',
+      href: 'mailto:sq153@naver.com',
       label: 'Email',
       gtagLabel: 'email',
     },
     {
       icon: BookOpen,
-      href: 'https://junheedot.tistory.com',
-      label: 'Tech blog',
-      gtagLabel: 'blog_tistory',
+      href: 'https://velog.io/@minsung6333',
+      label: 'Velog',
+      gtagLabel: 'blog_velog',
     },
   ];
 
@@ -101,7 +95,7 @@ export function Hero() {
           >
             <Button size='lg' variant='glass' className='glass-glow' asChild>
               <a
-                href='/resume/resume-20260205.pdf'
+                href='/resume/minsung-seo-resume.pdf'
                 download
                 onClick={() =>
                   gtag.event({
@@ -116,7 +110,7 @@ export function Hero() {
             </Button>
             <Button size='lg' variant='glass' asChild>
               <a
-                href='https://github.com/junh0328'
+                href='https://github.com/minsung6333'
                 target='_blank'
                 rel='noopener noreferrer'
                 onClick={() =>

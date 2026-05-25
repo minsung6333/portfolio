@@ -11,19 +11,13 @@ export function Footer() {
   const socialLinks = [
     {
       icon: Github,
-      href: 'https://github.com/junh0328',
+      href: 'https://github.com/minsung6333',
       label: 'GitHub',
       gtagLabel: 'github',
     },
     {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/%EC%A4%80%ED%9D%AC-%EC%9D%B4-23176a214/',
-      label: 'LinkedIn',
-      gtagLabel: 'linkedin',
-    },
-    {
       icon: Mail,
-      href: 'mailto:junh0328@naver.com',
+      href: 'mailto:sq153@naver.com',
       label: 'Email',
       gtagLabel: 'email',
     },

@@ -54,7 +54,7 @@ export function Header() {
               href='/'
               className='text-xl font-bold gradient-text px-3 py-1 rounded-xl hover:liquid-glass-subtle transition-all'
             >
-              JunHee Lee
+              Minsung Seo
             </Link>
 
             {/* Desktop Navigation */}

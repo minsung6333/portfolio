@@ -2,45 +2,46 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://junheedot.com'),
+  metadataBase: new URL('https://minsung6333.vercel.app'),
   title: {
-    default: '이준희 | Frontend Developer',
-    template: '%s | 이준희',
+    default: '서민성 | AI PM & Engineer',
+    template: '%s | 서민성',
   },
   description:
-    '4년차 프론트엔드 개발자 이준희입니다. 비즈니스 임팩트 중심의 개발과 레거시 시스템 현대화 경험을 바탕으로 사용자 경험과 서비스 성장에 기여합니다.',
+    '4년차 AI PM & Engineer 서민성입니다. 생성형 AI·RAG 기반 챗봇을 기획하고 직접 구현하는 AI PM입니다.',
   keywords: [
-    '프론트엔드',
-    '개발자',
-    'React',
-    'Next.js',
-    'TypeScript',
+    'AI PM',
+    'AI Engineer',
+    'RAG',
+    'LLM',
+    '생성형AI',
+    '챗봇',
     '포트폴리오',
-    '이준희',
+    '서민성',
   ],
-  authors: [{ name: '이준희' }],
-  creator: '이준희',
+  authors: [{ name: '서민성' }],
+  creator: '서민성',
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
     alternateLocale: 'en_US',
-    siteName: '이준희 Portfolio',
-    title: '이준희 | Frontend Developer',
+    siteName: '서민성 Portfolio',
+    title: '서민성 | AI PM & Engineer',
     description:
-      '4년차 프론트엔드 개발자 이준희입니다. 비즈니스 임팩트 중심의 개발과 레거시 시스템 현대화 경험을 바탕으로 사용자 경험과 서비스 성장에 기여합니다.',
+      '4년차 AI PM & Engineer 서민성입니다. 생성형 AI·RAG 기반 챗봇을 기획하고 직접 구현하는 AI PM입니다.',
     images: [
       {
         url: '/title_image.png',
         width: 1200,
         height: 630,
-        alt: '이준희 Frontend Developer Portfolio',
+        alt: '서민성 AI PM & Engineer Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '이준희 | Frontend Developer',
-    description: '4년차 프론트엔드 개발자 포트폴리오',
+    title: '서민성 | AI PM & Engineer',
+    description: '4년차 AI PM & Engineer 포트폴리오',
     images: ['/title_image.png'],
   },
   robots: {

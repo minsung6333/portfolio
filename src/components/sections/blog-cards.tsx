@@ -136,7 +136,7 @@ export function BlogCards({ posts, title, subtitle, viewAll }: BlogCardsProps) {
           className='group liquid-glass hover:liquid-glass-elevated'
         >
           <a
-            href='https://junheedot.tistory.com'
+            href='https://velog.io/@minsung6333'
             target='_blank'
             rel='noopener noreferrer'
             onClick={() =>

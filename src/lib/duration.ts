@@ -92,14 +92,15 @@ export const COMPANY_START_DATES: Record<
   string,
   { startDate: string; endDate?: string }
 > = {
-  dnsever: { startDate: '2024.07', endDate: '2026.02' }, // 퇴사
-  eazel: { startDate: '2022.01', endDate: '2024.06' }, // 퇴사
+  klavi: { startDate: '2024.04' }, // 재직중
+  nexthub: { startDate: '2022.05', endDate: '2023.02' },
+  goldenplanet: { startDate: '2021.03', endDate: '2022.05' },
 };
 
 /**
  * 전체 경력 시작일 (첫 회사 시작일)
  */
-export const CAREER_START_DATE = '2022.01';
+export const CAREER_START_DATE = '2021.03';
 
 /**
  * 회사 재직 기간을 계산합니다.

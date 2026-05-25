@@ -42,3 +42,12 @@ next-env.d.ts
 
 # playwright
 .playwright-mcp
+
+# claude
+.claude/
+
+# root-level loose files (logos/docs placed here before moving to public/)
+*.pdf
+clabi\ logo.png
+goldenplanet\ logo.png
+nexthub\ logo.jpg

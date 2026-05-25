@@ -21,15 +21,15 @@ import {
 
 // Details labels for each position
 const detailsConfig: Record<string, Record<string, string[]>> = {
-  dnsever: {
-    dev: ['kyc', 'ai_docs', 'spot', 'maintenance'],
-    p2p: ['overview', 'process', 'communication', 'features', 'security'],
-    spot: ['migration', 'socket', 'ux'],
+  klavi: {
+    pm: ['pm_role', 'deliverables'],
+    ai: ['dev'],
   },
-  eazel: {
-    web2: ['admin', 'optimization', 'seo'],
-    renewal: ['tech', 'features', 'monitoring'],
-    web1: ['gucci', 'study', 'typescript'],
+  nexthub: {
+    pm_da: ['pm', 'analysis'],
+  },
+  goldenplanet: {
+    pm_da: ['pm', 'analysis'],
   },
 };
 
@@ -117,16 +117,22 @@ export function Experience() {
 
   const companies = [
     {
-      key: 'dnsever',
-      logo: '/images/logos/dns_ever_logo.png',
-      logoAlt: 'D&S Ever',
-      positions: ['dev', 'p2p', 'spot'],
+      key: 'klavi',
+      logo: '/images/logos/klavi.png',
+      logoAlt: '클라비',
+      positions: ['pm', 'ai'],
     },
     {
-      key: 'eazel',
-      logo: '/images/logos/eazel.jpeg',
-      logoAlt: 'Eazel',
-      positions: ['web2', 'renewal', 'web1'],
+      key: 'nexthub',
+      logo: '/images/logos/nexthub.jpg',
+      logoAlt: '넥스트허브',
+      positions: ['pm_da'],
+    },
+    {
+      key: 'goldenplanet',
+      logo: '/images/logos/goldenplanet.png',
+      logoAlt: '골든플래닛',
+      positions: ['pm_da'],
     },
   ];
 
@@ -171,6 +177,7 @@ export function Experience() {
                             fill
                             sizes='36px'
                             className='object-contain'
+                            unoptimized
                           />
                         </div>
                         <div>

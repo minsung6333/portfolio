@@ -57,10 +57,11 @@ describe('duration utilities', () => {
   });
 
   it('returns deterministic company duration for known company key', () => {
-    expect(getCompanyDuration('dnsever')).toEqual({
-      years: 1,
-      months: 8,
-      totalMonths: 20,
+    // nexthub: May 2022 - Feb 2023 = 10 months
+    expect(getCompanyDuration('nexthub')).toEqual({
+      years: 0,
+      months: 10,
+      totalMonths: 10,
     });
   });
 
