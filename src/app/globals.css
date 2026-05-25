@@ -41,10 +41,10 @@
 
   --radius: 0.625rem;
 
-  /* Gradient colors - Purple monotone */
-  --gradient-start: #3425a0;
-  --gradient-mid: #4231c8;
-  --gradient-end: #7b6ae8;
+  /* Gradient colors - Teal/Cyan */
+  --gradient-start: #0f766e;
+  --gradient-mid: #0891b2;
+  --gradient-end: #22d3ee;
 
   /* Liquid Glass - Light Mode */
   --glass-bg: rgba(255, 255, 255, 0.4);
@@ -99,10 +99,10 @@
   --input: #27272a;
   --ring: #d4d4d8;
 
-  /* Gradient colors for dark mode - Blue monotone */
-  --gradient-start: #4a90d9;
-  --gradient-mid: #7cb5f7;
-  --gradient-end: #a8d4ff;
+  /* Gradient colors for dark mode - Teal/Cyan */
+  --gradient-start: #0d9488;
+  --gradient-mid: #06b6d4;
+  --gradient-end: #67e8f9;
 
   /* Liquid Glass - Dark Mode */
   --glass-bg: rgba(30, 30, 40, 0.5);

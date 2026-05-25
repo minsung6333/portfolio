@@ -9,8 +9,8 @@ import * as gtag from '@/lib/gtag';
 import LiquidEther from '@/components/common/liquid-ether';
 
 // Theme-based color palettes
-const LIGHT_COLORS = ['#3425A0', '#4231c8', '#7B6AE8'];
-const DARK_COLORS = ['#4A90D9', '#7CB5F7', '#A8D4FF'];
+const LIGHT_COLORS = ['#0f766e', '#0891b2', '#22d3ee'];
+const DARK_COLORS = ['#0d9488', '#06b6d4', '#67e8f9'];
 
 export function Hero() {
   const t = useTranslations('hero');
