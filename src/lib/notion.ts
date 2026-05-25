@@ -100,6 +100,21 @@ export async function getSideProjects(): Promise<NotionSideProject[]> {
   });
 }
 
+export interface NotionCareerProject {
+  id: string;
+  title: string;
+  companyIds: string[]; // 소속회사 relation에서 추출한 page ID 배열
+  role: string; // PM | AI Engineer | 데이터 분석가 | PM+AI Engineer
+  period: string;
+  client: string; // 고객사
+  purpose: string; // 수행목적
+  keyTasks: string[]; // 핵심과제
+  deliverables: string[]; // 산출물
+  myRole: string[]; // 본인역할
+  tech: string[]; // 기술스택
+  order: number;
+}
+
 // ── 경력사항 fetch ──────────────────────────────────────────────────────────
 
 export async function getCareers(): Promise<NotionCareer[]> {
@@ -120,6 +135,58 @@ export async function getCareers(): Promise<NotionCareer[]> {
       headcount: getText(p['직원수']),
       employmentType: getText(p['고용형태']),
       isCurrent: getText(p['현재재직중']) === '__YES__',
+      order: Number(getText(p['순서'])),
+    };
+  });
+}
+
+// ── 경력 프로젝트 fetch ─────────────────────────────────────────────────────
+
+/** 소속회사 relation URL에서 page ID를 추출 */
+function extractPageIds(relationText: string): string[] {
+  try {
+    const urls: string[] = JSON.parse(relationText);
+    return urls.map((url) => {
+      const match = url.match(/([0-9a-f]{32})(?:\?|$)/i);
+      if (match) {
+        const raw = match[1];
+        return `${raw.slice(0, 8)}-${raw.slice(8, 12)}-${raw.slice(12, 16)}-${raw.slice(16, 20)}-${raw.slice(20)}`;
+      }
+      return url;
+    });
+  } catch {
+    return [];
+  }
+}
+
+export async function getCareerProjects(): Promise<NotionCareerProject[]> {
+  const res = await notion.databases.query({
+    database_id: DB.careerProjects,
+    filter: { property: '게시여부', checkbox: { equals: true } },
+    sorts: [{ property: '순서', direction: 'ascending' }],
+  });
+
+  return res.results.map((page) => {
+    const p = (page as { properties: Record<string, NotionProp> }).properties;
+    return {
+      id: page.id,
+      title: getText(p['프로젝트명']),
+      companyIds: extractPageIds(getText(p['소속회사'])),
+      role: getText(p['역할']),
+      period: getText(p['기간']),
+      client: getText(p['고객사']),
+      purpose: getText(p['수행목적']),
+      keyTasks: toLines(getText(p['핵심과제'])),
+      deliverables: toLines(getText(p['산출물'])),
+      myRole: toLines(getText(p['본인역할'])),
+      tech: (() => {
+        try {
+          const raw = getText(p['기술스택']);
+          return JSON.parse(raw) as string[];
+        } catch {
+          return [];
+        }
+      })(),
       order: Number(getText(p['순서'])),
     };
   });
