@@ -142,21 +142,11 @@ export async function getCareers(): Promise<NotionCareer[]> {
 
 // ── 경력 프로젝트 fetch ─────────────────────────────────────────────────────
 
-/** 소속회사 relation URL에서 page ID를 추출 */
-function extractPageIds(relationText: string): string[] {
-  try {
-    const urls: string[] = JSON.parse(relationText);
-    return urls.map((url) => {
-      const match = url.match(/([0-9a-f]{32})(?:\?|$)/i);
-      if (match) {
-        const raw = match[1];
-        return `${raw.slice(0, 8)}-${raw.slice(8, 12)}-${raw.slice(12, 16)}-${raw.slice(16, 20)}-${raw.slice(20)}`;
-      }
-      return url;
-    });
-  } catch {
-    return [];
-  }
+/** relation 프로퍼티에서 page ID 배열 추출 */
+function getRelationIds(prop: NotionProp | undefined | null): string[] {
+  if (!prop || prop.type !== 'relation') return [];
+  const items = prop.relation as Array<{ id: string }>;
+  return items?.map((r) => r.id) ?? [];
 }
 
 export async function getCareerProjects(): Promise<NotionCareerProject[]> {
@@ -171,7 +161,7 @@ export async function getCareerProjects(): Promise<NotionCareerProject[]> {
     return {
       id: page.id,
       title: getText(p['프로젝트명']),
-      companyIds: extractPageIds(getText(p['소속회사'])),
+      companyIds: getRelationIds(p['소속회사']),
       role: getText(p['역할']),
       period: getText(p['기간']),
       client: getText(p['고객사']),
