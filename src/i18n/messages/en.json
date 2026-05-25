@@ -12,7 +12,7 @@
   "hero": {
     "name": "Minsung Seo",
     "role": "AI PM & Engineer",
-    "description": "Making AI work in real business — from product planning to RAG implementation.",
+    "description": "From idea to deployment — a PM who actually builds the AI.",
     "company": "Klavi",
     "downloadResume": "Download Resume",
     "viewGithub": "GitHub"
@@ -310,7 +310,7 @@
   },
   "personalProjects": {
     "title": "Side Projects",
-    "subtitle": "AI competitions and personal learning projects.",
+    "subtitle": "Side projects where I built AI tools to solve real problems.",
     "viewMore": "View Details",
     "modal": {
       "overview": "Overview",
@@ -385,6 +385,101 @@
           ]
         },
         "github": "https://github.com/minsung6333/history_teller_rag_chat",
+        "images": []
+      },
+      "harufilm": {
+        "title": "HaruFilm — AI Photo Diary App",
+        "description": "A full-stack web app that turns your photos into daily diary entries using AI",
+        "role": "Personal Project (Full-stack)",
+        "period": "May 2026",
+        "tech": [
+          "Next.js",
+          "FastAPI",
+          "Supabase",
+          "OpenAI API",
+          "Tailwind CSS",
+          "Python",
+          "TypeScript"
+        ],
+        "features": [
+          "Upload a photo → AI auto-generates a diary entry via GPT Vision",
+          "Calendar view to browse and manage entries by date",
+          "Supabase Auth + Storage + real-time DB integration"
+        ],
+        "detail": {
+          "overview": "A web app where uploading a single photo generates a heartfelt diary entry for that day. Built with a Next.js frontend and FastAPI backend, with Supabase handling auth, file storage, and the database. GPT Vision API reads the image context and produces natural diary-style text.",
+          "tasks": [
+            "Next.js + Supabase auth and profile setup flow",
+            "Photo upload and Supabase Storage integration",
+            "FastAPI backend (diaries, photos, conversations, profile APIs)",
+            "GPT Vision API-based image analysis and diary generation logic",
+            "Calendar view and diary list/detail pages",
+            "Deployed on Vercel (frontend) + Render (backend)"
+          ]
+        },
+        "github": "https://github.com/minsung6333/harufilm",
+        "images": []
+      },
+      "nara": {
+        "title": "Nara Market Bid Analyzer",
+        "description": "AI pipeline that collects public procurement bids and scores their fit for your company",
+        "role": "Personal Project",
+        "period": "May 2026",
+        "tech": [
+          "Python",
+          "OpenAI API",
+          "G2B API",
+          "Multithreading",
+          "PDF Parsing"
+        ],
+        "features": [
+          "Auto-collects service & goods bids from Korea's G2B (Nara Market) API",
+          "2-stage LLM screening: title batch → full RFP PDF deep analysis",
+          "HIGH / MED / LOW fit scoring + strategic recommendations"
+        ],
+        "detail": {
+          "overview": "An automation tool built to catch public procurement opportunities before they expire. It fetches new bids daily from the G2B public API, runs a fast batch screening in stage 1 (title + metadata), then downloads and deeply analyzes only HIGH/MED bids in stage 2 — extracting project scope and scoring fit against a company profile.",
+          "tasks": [
+            "G2B API integration with pagination across multiple bid categories",
+            "Stage 1: GPT batch screening (HIGH / MED / LOW classification)",
+            "Stage 2: Auto PDF download → text extraction → project overview parsing",
+            "Deep analysis: fit score, strengths, risks, and proposal strategy",
+            "ThreadPoolExecutor-based parallel processing for speed",
+            "Customer profile customization support"
+          ]
+        },
+        "github": "https://github.com/minsung6333/nara-monitor",
+        "images": []
+      },
+      "rfp-writer": {
+        "title": "AI Proposal Draft Generator",
+        "description": "Upload an RFP PDF and LLM automatically extracts requirements and drafts each proposal section",
+        "role": "Personal Project",
+        "period": "May 2026",
+        "tech": [
+          "Python",
+          "Streamlit",
+          "OpenAI API",
+          "PDF Parsing",
+          "Multi-agent"
+        ],
+        "features": [
+          "RFP PDF parsing → auto requirements extraction & TOC structuring",
+          "Multi-agent debate to develop proposal strategy",
+          "Section-by-section draft generation with review & revision workflow"
+        ],
+        "detail": {
+          "overview": "A Streamlit tool built to cut the time spent on proposal writing. Upload an RFP PDF and the LLM extracts requirements and table of contents, builds a slide structure, runs a two-agent strategy debate, then generates drafts for each section — with a built-in review and revision workflow.",
+          "tasks": [
+            "RFP PDF parsing: requirement page detection and LLM-based extraction",
+            "TOC parsing or auto-generation for RFPs without a table of contents",
+            "Requirements ↔ slide mapping and coverage analysis",
+            "Multi-agent strategy debate (up to 2 rounds, with reference doc requests)",
+            "Streaming section draft generation (Q&A mode and outline mode)",
+            "Draft review and revision workflow"
+          ]
+        },
+        "github": "",
         "images": []
       }
     }

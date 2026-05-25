@@ -17,8 +17,23 @@ export function PersonalProjects() {
 
   const projects = [
     {
-      key: 'hansoldeco',
+      key: 'harufilm',
       cardVariant: 'editorial' as const,
+      spotlightColor: 'rgba(255, 160, 120, 0.14)',
+    },
+    {
+      key: 'nara',
+      cardVariant: 'glass' as const,
+      spotlightColor: 'rgba(90, 200, 140, 0.14)',
+    },
+    {
+      key: 'rfp-writer',
+      cardVariant: 'editorial' as const,
+      spotlightColor: 'rgba(160, 120, 255, 0.14)',
+    },
+    {
+      key: 'hansoldeco',
+      cardVariant: 'glass' as const,
       spotlightColor: 'rgba(90, 190, 255, 0.14)',
     },
     {
