@@ -1,4 +1,5 @@
-const RSS_URL = 'https://v2.velog.io/rss/@minsung6333';
+const RSS_URL =
+  'https://v2.velog.io/rss/@minsung6333?tag=rag+%EB%85%BC%EB%AC%B8';
 
 export interface BlogPost {
   title: string;
@@ -46,9 +47,6 @@ function formatDate(dateString: string, locale: string): string {
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').trim();
 }
-
-// 표시할 태그 필터 (null이면 전체)
-const BLOG_TAG_FILTER: string | null = 'rag 논문';
 
 export async function getBlogPosts(
   limit: number = 4,
@@ -104,14 +102,6 @@ export async function getBlogPosts(
 
       const pubDate =
         itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] || '';
-
-      // 태그 필터 적용
-      if (
-        BLOG_TAG_FILTER !== null &&
-        !categories.includes(BLOG_TAG_FILTER.toLowerCase())
-      ) {
-        continue;
-      }
 
       items.push({
         title: stripHtml(title),
