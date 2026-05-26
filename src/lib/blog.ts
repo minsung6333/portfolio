@@ -1,5 +1,6 @@
-const RSS_URL =
-  'https://v2.velog.io/rss/@minsung6333?tag=rag+%EB%85%BC%EB%AC%B8';
+const VELOG_API = 'https://api.velog.io/graphql';
+const VELOG_USERNAME = 'minsung6333';
+const BLOG_TAG_FILTER = 'rag 논문';
 
 export interface BlogPost {
   title: string;
@@ -8,24 +9,6 @@ export interface BlogPost {
   category: string;
   pubDate: string;
   thumbnail: string | null;
-}
-
-function decodeHtmlEntities(text: string): string {
-  return text
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&amp;/g, '&')
-    .replace(/&#39;/g, "'");
-}
-
-function extractThumbnail(html: string): string | null {
-  const decoded = decodeHtmlEntities(html);
-  // Match src attribute that starts with http (to avoid onerror fallback URLs)
-  const imgMatch = decoded.match(
-    /<img\s+[^>]*?src=["'](https?:\/\/[^"']+)["']/i
-  );
-  return imgMatch ? imgMatch[1] : null;
 }
 
 function formatDate(dateString: string, locale: string): string {
@@ -44,8 +27,14 @@ function formatDate(dateString: string, locale: string): string {
   });
 }
 
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').trim();
+interface VelogPost {
+  id: string;
+  title: string;
+  short_description: string;
+  slug: string;
+  tags: string[];
+  thumbnail: string | null;
+  released_at: string;
 }
 
 export async function getBlogPosts(
@@ -57,67 +46,46 @@ export async function getBlogPosts(
   }
 
   try {
-    const response = await fetch(RSS_URL, {
-      next: { revalidate: 604800 }, // Revalidate every week
+    const response = await fetch(VELOG_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `{
+          posts(username: "${VELOG_USERNAME}") {
+            id title short_description slug tags thumbnail released_at
+          }
+        }`,
+      }),
+      next: { revalidate: 604800 },
       signal: AbortSignal.timeout(5000),
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch RSS: ${response.status}`);
+      throw new Error(`Failed to fetch Velog API: ${response.status}`);
     }
 
-    const xml = await response.text();
+    const json = (await response.json()) as {
+      data?: { posts?: VelogPost[] };
+    };
+    const allPosts = json.data?.posts ?? [];
 
-    // Parse all items from RSS XML
-    const items: BlogPost[] = [];
-    const itemRegex = /<item>([\s\S]*?)<\/item>/g;
-    let match;
+    // 태그 필터링 후 limit 적용
+    const filtered = allPosts
+      .filter((p) =>
+        p.tags.some((t) => t.toLowerCase() === BLOG_TAG_FILTER.toLowerCase())
+      )
+      .slice(0, limit);
 
-    while ((match = itemRegex.exec(xml)) !== null) {
-      const itemXml = match[1];
-
-      const title =
-        itemXml.match(/<title><!\[CDATA\[([\s\S]*?)\]\]><\/title>/)?.[1] ||
-        itemXml.match(/<title>([\s\S]*?)<\/title>/)?.[1] ||
-        '';
-
-      const link = itemXml.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() || '';
-
-      const description =
-        itemXml.match(
-          /<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/
-        )?.[1] ||
-        itemXml.match(/<description>([\s\S]*?)<\/description>/)?.[1] ||
-        '';
-
-      // 태그가 여러 개일 수 있으므로 전부 수집
-      const categoryMatches = [
-        ...itemXml.matchAll(
-          /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>/g
-        ),
-        ...itemXml.matchAll(/<category>([\s\S]*?)<\/category>/g),
-      ];
-      const categories = categoryMatches.map((m) => m[1].trim().toLowerCase());
-      const category = categories[0] ?? '';
-
-      const pubDate =
-        itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] || '';
-
-      items.push({
-        title: stripHtml(title),
-        link,
-        description: stripHtml(description).slice(0, 150) + '...',
-        category,
-        pubDate: formatDate(pubDate, locale),
-        thumbnail: extractThumbnail(description),
-      });
-
-      if (items.length >= limit) break;
-    }
-
-    return items;
+    return filtered.map((p) => ({
+      title: p.title,
+      link: `https://velog.io/@${VELOG_USERNAME}/${p.slug}`,
+      description: p.short_description ?? '',
+      category: BLOG_TAG_FILTER,
+      pubDate: formatDate(p.released_at, locale),
+      thumbnail: p.thumbnail ?? null,
+    }));
   } catch (error) {
-    console.error('Error fetching blog posts:', error);
+    console.error('Error fetching Velog posts:', error);
     return [];
   }
 }
