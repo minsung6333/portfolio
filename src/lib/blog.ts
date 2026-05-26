@@ -60,7 +60,7 @@ export async function getBlogPosts(
 
   try {
     const response = await fetch(RSS_URL, {
-      next: { revalidate: 3600 }, // Revalidate every hour
+      next: { revalidate: 604800 }, // Revalidate every week
       signal: AbortSignal.timeout(5000),
     });
 
