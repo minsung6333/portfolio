@@ -1,0 +1,391 @@
+                       Company: 
+
+       : 
+       : 1994.03.31
+       :    49 8 (102)
+       : 010-9203-6333
+       : sq153@naver.com
+Email
+
+                              
+
+ AI , LLM Service PJT   IT PM 
+ 3~4      
+   LLM      
+ Python, SQL, Tableau      
+
+ :                                       ()    /
+                                               4.28 / 4.5-
+                                               3.02 / 4.5
+  2022. 09 ~ 2025. 02                 
+  2014. 03 ~ 2020. 08                                -
+  2010. 03 ~ 2013. 02
+
+  (4 Project Manager, AI Engineer)  
+
+                                                
+                                                
+  2024.04-                          - IT PM    
+  (1 10)                        - AI Engineer  
+2022.05-2023.02        
+  (0 10)                            - IT PM
+2022.03-2022.05             -  (NLP)
+   (1 3)
+                                    - IT PM
+                            -  (NLP)
+
+                                                            1
+  
+- CICD: Jenkins, ArgoCD, NKS
+- Python:  ,  , ,   // 
+- SQL:    ,  
+- Tableau:  ,  
+  
+- 2024.08     ()
+-  2 AI  (Private Rank 34/1,311)
+- 2020.10 KT MHOWS    3 ()
+- 2020.09     3 ()
+- 2018.08        1 ()
+: []  (2016.01.12 ~ 2017.10.11) � //21
+
+                                                                                                                                                  2
+
+
+<  >
+ AI Enterprise Manager      .
+
+1)    (PM)
+-  AI�RAG  IT  PM  
+-        
+- ��     
+-         
+
+     AI    PM , Waterfall  
+   .  ,  , IA  DB , API    
+ �    .
+
+     AI        ,  
+       .  , ,   
+    ,     �    
+.
+
+       AI       ,  
+  PM  .
+
+2)    
+- , ,      
+-       
+-       
+
+ AI        , �
+�  Facilitator  .  AI     
+      .
+
+   LLM, RAG ,  ,          ,
+       .       
+ ,     .
+
+          ,   
+  .
+
+                                                                                                                                                  3
+3) AI     
+-  AI, LLM, RAG     
+-      
+-      PM  
+PM    AI Engineer RAG      .
+ ,  ,   ,        AI
+   .
+
+              ,
+        .    PM
+,       PM   .
+4)       
+-   AI     
+-  LLM   AI     
+-       
+ AI       .    
+,          .
+
+   LLM, RAG,  ,         ,  
+        .   
+           .
+
+                                                                                                                                                  4
+                                      2024.04 ~  (1 10)
+
+() AIOps,    
+<>
+: IT SI, MSP
+: AI , IT  
+: 63/: 100 
+
+< > *8   
+
+1. IT   PM 
+   IT      
+   NKS   IT    
+     AI (Text, Finetuning, RAG)  ,  
+
+ :      2 (2025.11 ~ )
+                       AI    2 (2025.08 ~ 2025.12)
+                      AI    (2025.03 ~ 2025.12)
+
+2. RAG  AI   
+   NKS   IT  
+   RAG  AI   
+   Hyper ClovaX     
+
+ :      PoC (2025.06 ~ 2025.08)
+                        AI    PoC (2025.02)
+                       AI    1 (2024.09 ~ 2025.01)
+                          1 (2024.05 ~ 2024.11)
+                      AI    PoC (2024.06 ~ 2024.08)
+                          PoC (2024.05)
+                           PoC (2024.04)
+
+                                                         5
+(), ,           2022.05 ~ 2023.02(0 10)
+<>
+:  
+:  ,  
+: 40/: 20
+
+< > *8   
+
+1.      
+   ,      
+         
+
+-  : Python
+-  :          (2022.05 ~ 2022.12)
+
+2. /   
+     (NLP)    
+          
+        ,    
+
+-  : Python, Tableau
+-  : ,       (2022.09 ~ 2022.12)
+
+                        ,        (2022.09 ~ 2022.12)
+                        ,       (2022.05 ~ 2022.09)
+                        ,   (2022.05 ~ 2022.09)
+
+3.      PM
+        PM
+    ,     
+      
+         
+
+   -  : Python, Tableau
+   -  : ,      (2022.05 ~ 2023.02)
+
+                                                      6
+(), ,              2021.03 ~ 2022.05(1 3)
+
+<>
+
+: IT SI,  , 
+
+:     / / 
+
+: 120/: 150
+
+< > *8   
+
+1.    
+     (NLP)  SNS  
+   /      
+        ,    
+
+-  : Python
+-  : SK, Slab       (2021.06 ~ 2022.02)
+
+                        SK,       (2021.06 ~ 2022.02)
+                                (2021.11 ~ 2022.01)
+                        ,  VOC      (2021.05 ~ 2021.12)
+                        KDATA,     (2021.04 ~ 2021.09)
+
+2.     PM
+        PM
+    ,     
+       Python     
+         
+
+   -  : Python
+   -  :     (2021.07 ~ 2021.12)
+
+                               (2021.07~ 2021.12)
+
+                                                         7
+                                    2024.04 ~ 2026.01
+
+ / AIOps  PM & AI Engineer
+
+1.  AI    PM
+: 
+:    AI  
+ : 2025.08 ~ 2025.12
+ :       
+
+:
+1)       
+2)        AI  
+
+ :
+1)  (URS, WBS, FS, IA, DB , API  )
+2)   AI  PoC
+3)    LLM
+
+    (PM)
+1)    *Waterfall Development
+2)  ,  , IA  DB 
+3)    , �      
+4)  ,   
+
+2.  AI KEPIC   PM
+: 
+: KEPIC AI   
+ : 2025.03 ~ 2025.12
+ : KEPIC      
+
+:
+1) (KEPIC)     
+
+ :
+1)  (WBS, IA, DB , , API  )
+2)  AI   Backend API
+3)  AI    UI/UX 
+
+                                                       8
+    (PM)
+1)    *Waterfall Development
+2)  ,  , IA  DB 
+3)  ,  
+4)   
+3. RAG  AI   
+: 
+:      1
+ : 2024.5 ~ 2024.11
+ :      
+:
+1) RAG     
+ :
+1)  AI   Backend API
+    (AI Engineer)
+1) RAG     
+2)  ,   
+3)    
+
+                                                                                                                                                  9
+(), ,                 2022.05 ~ 2023.02
+
+1. /   
+: ()
+:   _  
+ : 2022.05 ~ 2022.12
+ : /CRM      
+ : Python, Tableau
+
+:
+1)    
+2) LSTM    
+3) CRM       
+4)   
+
+ :
+1) ,      
+2)    (KPI)
+3)   LSTM  
+4)   
+
+    (/  )
+1)          
+2)    LSTM  
+3) LSTM    
+4)   KPI  
+5)       
+6)   CRM    
+
+                      10
+2.      PM
+: ()
+:    
+ : 2022.05 ~ 2023.02
+ :        
+ : Python, Figma
+:
+1)     DB( ,  )
+2) Storyboard   
+3)   () *  
+4)   (, ) *  
+5)     (KPI)
+    (PM/  )
+1)  ,     *Hybrid Development
+2)  ,  , IA  DB 
+3)     Facilitator Role 
+4)     
+5)     (KPI)
+
+                                                                                                                                                11
+/ ,                   2021.03 ~ 2022.05
+
+1.   
+
+: SK
+: Slab   ,    
+ : 2021.01 ~ 2022.02
+ :       
+ : Python
+
+:
+   ,         ()
+1)       
+2) SNS   ,      
+3)     
+4) KOBERT     
+5) KOBERT     
+6)      
+
+    (/  )
+1)    ,     
+2) EDA ,   
+3) BERT    
+4)     
+
+2.   
+: 
+:        
+ : 2021.11 ~ 2022.01
+ :      
+ : Python
+:
+1)         
+2)          
+3)       
+4)   
+
+    (/  )
+1)      
+2) EDA ,   
+3)      
+
+                      12
+3.     PM
+: , 
+:    
+ : 2021.07 ~ 2021.12
+ :    
+ : Python
+ :
+1)  (WBS, DB , , API  )
+2)   
+    (PM,  )
+1)    *Waterfall Development
+2)     
+3)      
+4)    
+
+                                                                                                                                                13
+

@@ -47,6 +47,9 @@ function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').trim();
 }
 
+// 표시할 태그 필터 (null이면 전체)
+const BLOG_TAG_FILTER: string | null = 'rag 논문';
+
 export async function getBlogPosts(
   limit: number = 4,
   locale: string = 'ko'
@@ -67,12 +70,12 @@ export async function getBlogPosts(
 
     const xml = await response.text();
 
-    // Parse items from RSS XML
+    // Parse all items from RSS XML
     const items: BlogPost[] = [];
     const itemRegex = /<item>([\s\S]*?)<\/item>/g;
     let match;
 
-    while ((match = itemRegex.exec(xml)) !== null && items.length < limit) {
+    while ((match = itemRegex.exec(xml)) !== null) {
       const itemXml = match[1];
 
       const title =
@@ -89,15 +92,26 @@ export async function getBlogPosts(
         itemXml.match(/<description>([\s\S]*?)<\/description>/)?.[1] ||
         '';
 
-      const category =
-        itemXml.match(
-          /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>/
-        )?.[1] ||
-        itemXml.match(/<category>([\s\S]*?)<\/category>/)?.[1] ||
-        '';
+      // 태그가 여러 개일 수 있으므로 전부 수집
+      const categoryMatches = [
+        ...itemXml.matchAll(
+          /<category><!\[CDATA\[([\s\S]*?)\]\]><\/category>/g
+        ),
+        ...itemXml.matchAll(/<category>([\s\S]*?)<\/category>/g),
+      ];
+      const categories = categoryMatches.map((m) => m[1].trim().toLowerCase());
+      const category = categories[0] ?? '';
 
       const pubDate =
         itemXml.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1] || '';
+
+      // 태그 필터 적용
+      if (
+        BLOG_TAG_FILTER !== null &&
+        !categories.includes(BLOG_TAG_FILTER.toLowerCase())
+      ) {
+        continue;
+      }
 
       items.push({
         title: stripHtml(title),
@@ -107,6 +121,8 @@ export async function getBlogPosts(
         pubDate: formatDate(pubDate, locale),
         thumbnail: extractThumbnail(description),
       });
+
+      if (items.length >= limit) break;
     }
 
     return items;
