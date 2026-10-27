@@ -129,12 +129,12 @@
 <div class="section">
   <div class="sec-title">핵심 역량</div>
   <div class="summary-grid">
-    <div class="si">생성형 AI·LLM·RAG 기반 IT 프로젝트 PM 수행 (공공기관·기업 대상)</div>
+    <div class="si">생성형 AI·LLM·RAG 기반 IT 프로젝트 PM 수행 (금융·공공기관 대상)</div>
     <div class="si">클라우드 환경(NKS)에서 LLM 서비스 개발·배포 직접 수행</div>
     <div class="si">요구사항 정의부터 배포까지 전 주기 프로젝트 관리 (Waterfall/Hybrid)</div>
     <div class="si">이해관계자 커뮤니케이션 허브 역할 (현업·개발팀·외부 협력사)</div>
     <div class="si">Python·SQL·Tableau 활용 데이터 분석 및 시각화</div>
-    <div class="si">아이디어에서 배포까지 AI 서비스를 직접 만드는 PM</div>
+    <div class="si">LLM 기반 사내 업무 자동화 도구 직접 기획·개발·운영 (공고 분석, 제안서 작성)</div>
   </div>
 </div>
 
@@ -146,10 +146,18 @@
   <div class="company">
     <div class="co-header">
       <span class="co-name">(주)클라비 · AIOps팀</span>
-      <span class="co-period">2024.04 – 현재 (1년 10개월)</span>
+      <span class="co-period">2024.04 – 현재 (2년 7개월)</span>
     </div>
     <div class="co-meta"><span class="badge">IT PM</span><span class="badge">AI Engineer</span>IT SI·MSP | 직원 63명 | 정규직</div>
 
+    <div class="proj">
+      <div class="proj-name">금융감독원 민원처리 AI 구축 PM</div>
+      <div class="proj-client">금융감독원 | 2026.03 – 현재 (진행 중)</div>
+      <ul class="proj-items">
+        <li>민원 유형·처리 부서 추천, 유사 민원·판례 추천, 회신문 초안 자동 작성 기능 구축 PM</li>
+        <li>Gemma 기반 온프레미스 LLM 환경 · RAG 및 Agentic AI 구조 적용</li>
+      </ul>
+    </div>
     <div class="proj">
       <div class="proj-name">소상공인 상권분석 AI 챗봇 구축 PM</div>
       <div class="proj-client">소상공인시장진흥공단 | 2025.08 – 2025.12</div>
@@ -173,7 +181,24 @@
         <li>HyperClovaX 기반 RAG 챗봇 프롬프트 튜닝 및 직접 개발 · 데이터마트·수집 파이프라인 구성 (NKS)</li>
       </ul>
     </div>
+    <div class="proj">
+      <div class="proj-name">나라장터 AI 공고 모니터링 시스템 (사내 · 기획/개발)</div>
+      <div class="proj-client">사내 프로젝트 | 2026.05 – 현재 (운영 중)</div>
+      <ul class="proj-items">
+        <li>입찰공고·사전규격·발주계획 매일 자동 수집 → 첨부 RFP(PDF/HWP)까지 LLM이 읽고 자사 역량 적합도 2단계 평가 · 메일·엑셀 리포트 발송</li>
+        <li>GitHub Actions 일일 자동 실행 · 해외 IP 차단 우회용 서울 리전 다운로드 프록시(Vercel) 구축 · 영업 조직별 멀티 고객 운영</li>
+      </ul>
+    </div>
+    <div class="proj">
+      <div class="proj-name">RFP 제안서 작성 지원 도구 (사내 · 기획/개발)</div>
+      <div class="proj-client">사내 프로젝트 | 2026.05 – 2026.06</div>
+      <ul class="proj-items">
+        <li>RFP PDF에서 요구사항·목차 자동 추출 (표·이미지 페이지는 Vision LLM OCR) · 전략가↔비평가 멀티 에이전트 토론으로 제안 전략 수립</li>
+        <li>소제목 단위 병렬 초안 생성 · 참고문서 자동 반영 · 비개발자용 원클릭 실행 패키지 배포</li>
+      </ul>
+    </div>
     <div style="font-size:7.8pt;color:var(--muted);margin-top:3px;">+ 금융감독원 민원분류 PoC, 경기기업비서2차(2025.11~), 소상공인1차(2024.09), 세종특별자치시 PoC, 한국마사회 PoC, 전라남도교육청 PoC 등</div>
+    <div style="font-size:7.8pt;color:var(--muted);margin-top:3px;">+ 제안서 작성: 금융감독원 AI 기반 불공정거래 대응체계 마련사업(AI 부문), 국방부 VLIW 병렬 아키텍처 해석 시스템 도입</div>
   </div>
 
   <!-- 넥스트허브 -->
@@ -230,10 +255,10 @@
   <div class="section">
     <div class="sec-title">기술 스택</div>
     <table class="skills-table">
-      <tr><td class="sk-cat">LLM / AI</td><td class="sk-val">LLM, RAG, HyperClovaX, Prompt Engineering, PEFT, Fine-tuning</td></tr>
-      <tr><td class="sk-cat">Python</td><td class="sk-val">Python, NLP, BERT, LSTM, LangChain, FastAPI</td></tr>
+      <tr><td class="sk-cat">LLM / AI</td><td class="sk-val">LLM, RAG, Agentic AI, Gemma, HyperClovaX, Prompt Engineering, PEFT, Fine-tuning</td></tr>
+      <tr><td class="sk-cat">Python</td><td class="sk-val">Python, NLP, BERT, LSTM, LangChain, FastAPI, Streamlit</td></tr>
       <tr><td class="sk-cat">데이터</td><td class="sk-val">SQL, Tableau, Pandas, scikit-learn</td></tr>
-      <tr><td class="sk-cat">DevOps</td><td class="sk-val">Jenkins, ArgoCD, NKS, Git</td></tr>
+      <tr><td class="sk-cat">DevOps</td><td class="sk-val">Jenkins, ArgoCD, NKS, GitHub Actions, Vercel, Git</td></tr>
       <tr><td class="sk-cat">PM 도구</td><td class="sk-val">Notion, Figma, Jira, Slack</td></tr>
     </table>
   </div>
@@ -283,12 +308,40 @@
   <div class="detail-company">
     <div class="detail-co-header">
       <div class="detail-co-name">(주)클라비 · AIOps팀 <span class="role-badge2">IT PM / AI Engineer</span></div>
-      <div class="detail-co-meta">IT SI·MSP | 직원 63명 | 정규직 | 2024.04 – 현재 (1년 10개월)</div>
+      <div class="detail-co-meta">IT SI·MSP | 직원 63명 | 정규직 | 2024.04 – 현재 (2년 7개월)</div>
     </div>
 
     <!-- 프로젝트 1 -->
     <div class="detail-proj">
-      <div class="detail-proj-title">1. 생성형 AI 상권분석 챗봇 구축 PM <span class="role-badge2">PM</span></div>
+      <div class="detail-proj-title">1. 금융감독원 민원처리 AI 구축 PM <span class="role-badge2">PM</span></div>
+      <div class="detail-proj-client">고객사: 금융감독원 | 2026.03 – 현재 (진행 중)</div>
+
+      <div class="detail-section">
+        <div class="detail-label">▸ 수행 목적</div>
+        <ul class="detail-items dot"><li>민원 접수부터 회신까지의 처리 과정을 생성형 AI로 지원하여 민원 처리 업무 효율화</li></ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 핵심 과제</div>
+        <ul class="detail-items">
+          <li>민원 유형 및 처리 부서 자동 추천</li>
+          <li>유사 민원 및 관련 판례 추천</li>
+          <li>민원 회신문 초안 자동 작성</li>
+          <li>Gemma 기반 온프레미스 LLM 환경 구축 (RAG · Agentic AI)</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 본인의 역할 (PM)</div>
+        <ul class="detail-items">
+          <li>전체 프로젝트 관리 및 일정·리스크·이슈 관리</li>
+          <li>요구사항 정의 및 기능 정의</li>
+          <li>고객사 현업부서–개발팀 간 의사소통 및 이슈 조율</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 프로젝트 2 -->
+    <div class="detail-proj">
+      <div class="detail-proj-title">2. 생성형 AI 상권분석 챗봇 구축 PM <span class="role-badge2">PM</span></div>
       <div class="detail-proj-client">고객사: 소상공인시장진흥공단 | 2025.08 – 2025.12</div>
 
       <div class="detail-section">
@@ -321,9 +374,9 @@
       </div>
     </div>
 
-    <!-- 프로젝트 2 -->
+    <!-- 프로젝트 3 -->
     <div class="detail-proj">
-      <div class="detail-proj-title">2. 대한전기협회 KEPIC AI 챗봇 구축 PM <span class="role-badge2">PM</span></div>
+      <div class="detail-proj-title">3. 대한전기협회 KEPIC AI 챗봇 구축 PM <span class="role-badge2">PM</span></div>
       <div class="detail-proj-client">고객사: 대한전기협회 | 2025.03 – 2025.12</div>
 
       <div class="detail-section">
@@ -357,7 +410,7 @@
 
     <!-- 프로젝트 3 -->
     <div class="detail-proj">
-      <div class="detail-proj-title">3. 경기기업비서 RAG 챗봇 개발 <span class="role-badge2">AI Engineer</span></div>
+      <div class="detail-proj-title">4. 경기기업비서 RAG 챗봇 개발 <span class="role-badge2">AI Engineer</span></div>
       <div class="detail-proj-client">고객사: 경기도경제과학진흥원 | 2024.05 – 2024.11</div>
 
       <div class="detail-section">
@@ -384,6 +437,81 @@
           <li>데이터 수집 파이프라인 구성</li>
         </ul>
       </div>
+    </div>
+
+    <!-- 프로젝트 5 -->
+    <div class="detail-proj">
+      <div class="detail-proj-title">5. 나라장터 AI 공고 모니터링 시스템 <span class="role-badge2">기획 · 개발</span></div>
+      <div class="detail-proj-client">사내 프로젝트 (㈜클라비) | 2026.05 – 현재 (운영 중)</div>
+
+      <div class="detail-section">
+        <div class="detail-label">▸ 수행 목적</div>
+        <ul class="detail-items dot"><li>나라장터 공공조달 공고를 매일 자동 수집·분석하여 영업 조직의 사업 발굴 및 입찰 검토 업무 효율화</li></ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 핵심 과제</div>
+        <ul class="detail-items">
+          <li>입찰공고·사전규격·발주계획 3개 유형 공고 매일 자동 수집 (조달청 공공데이터 API)</li>
+          <li>LLM 2단계 분석 — 제목·메타 기반 1차 스크리닝 후 첨부 RFP(PDF/HWP) 본문을 읽어 자사 역량 적합도 심층 평가</li>
+          <li>즉시검토·검토고려 분류, 강점/리스크·권장 행동을 담은 HTML 메일 및 엑셀 리포트 자동 발송</li>
+          <li>해외 IP 다운로드 차단 대응을 위한 서울 리전 파일 다운로드 프록시 구축</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 프로젝트 산출물</div>
+        <ul class="detail-items">
+          <li>GitHub Actions 기반 일일 자동 실행 파이프라인 (매일 07:00)</li>
+          <li>영업 조직별 키워드·수신자를 분리 운영하는 멀티 고객 구조 및 등록 도구 (CLI/GUI)</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 본인의 역할</div>
+        <ul class="detail-items">
+          <li>기획, 설계, 개발, 운영 전 과정 1인 수행</li>
+          <li>Python · OpenAI API · GitHub Actions · Vercel</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 프로젝트 6 -->
+    <div class="detail-proj">
+      <div class="detail-proj-title">6. RFP 제안서 작성 지원 도구 <span class="role-badge2">기획 · 개발</span></div>
+      <div class="detail-proj-client">사내 프로젝트 (㈜클라비) | 2026.05 – 2026.06</div>
+
+      <div class="detail-section">
+        <div class="detail-label">▸ 수행 목적</div>
+        <ul class="detail-items dot"><li>공공 RFP 분석부터 제안 전략 수립, 장표별 초안 작성까지 제안서 작성 과정 자동화</li></ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 핵심 과제</div>
+        <ul class="detail-items">
+          <li>RFP PDF에서 요구사항·목차 자동 추출 (표·도표가 많은 페이지는 Vision LLM으로 OCR)</li>
+          <li>전략가↔비평가 멀티 에이전트 다중 라운드 토론으로 평가위원 관점의 챕터별 전략 수립</li>
+          <li>소제목 단위 병렬 호출로 장표별 초안 생성 · 회사소개서·이전 제안서 등 참고문서 자동 반영</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 프로젝트 산출물</div>
+        <ul class="detail-items">
+          <li>Streamlit 기반 제안서 작성 웹 도구 (목차 편집, 요구사항 매핑, 엑셀·마크다운 export)</li>
+          <li>비개발자용 원클릭 실행 패키지 (Python 환경 자동 설치)</li>
+        </ul>
+      </div>
+      <div class="detail-section">
+        <div class="detail-label">▸ 본인의 역할</div>
+        <ul class="detail-items">
+          <li>기획, 설계, 개발 1인 수행 및 사내 배포</li>
+          <li>Python · Streamlit · OpenAI API · PyMuPDF</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <div class="detail-label">▸ 사업 제안</div>
+      <ul class="detail-items dot">
+        <li>금융감독원 AI 기반 불공정거래 대응체계 마련사업 — AI 부문 제안서 작성</li>
+        <li>국방부 VLIW 병렬 아키텍처 해석 시스템 도입 — 제안서 작성</li>
+      </ul>
     </div>
   </div>
 
